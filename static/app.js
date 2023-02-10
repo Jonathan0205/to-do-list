@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded",function(){
     }
     function changeStatus(element){
         let countAttr = element.getAttribute("count");
-        // console.log(element)
+
 
                 if(element.getAttribute("state") == "true"){
                     element.style="text-decoration:none;"   
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded",function(){
         let listParser = getStorage("list")
         if(listParser){
         
-            // console.log(listParser)   
+  
             Object.values(listParser).forEach((element,index) => {
                 let tempElement = document.createElement("div");
                 tempElement.innerHTML = element.text;
@@ -57,13 +57,7 @@ window.addEventListener("DOMContentLoaded",function(){
                     listParser = getStorage("list")
                 }
                 taskList.appendChild(li);
-            // console.log(index)
-            // taskList.innerHTML +=element.text;
-            
-            // taskList.children[index].onclick = function() {
-           
-            //     changeStatus(this)
-            // }
+   
 
            
 
@@ -99,21 +93,7 @@ window.addEventListener("DOMContentLoaded",function(){
             let listParser = getStorage("list");
             let elementList = createTask(taskInput.value)
             location.reload()
-            elementList.onclick = function(){
-                changeStatus(this)
-             
-                // this.parentNode.removeChild(this);
-            }
-            elementList.ondblclick = function(){
-                // this.style="text-decoration:line-through;"   
-              
-                killList(this)
-                let updatedList = { ...listParser};
-                    delete obj[this.getAttribute("count")]
-                    delete updatedList[this.getAttribute("count")];
-                    localStorage.setItem("list", JSON.stringify(updatedList));
-                    // listParser = getStorage("list")
-            }
+         
 
         }
     })
